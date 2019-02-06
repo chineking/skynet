@@ -1,3 +1,4 @@
+import time
 import asyncio
 
 LEVELS = 6
@@ -19,7 +20,9 @@ async def coroutine(level=0, index=0):
         return index
 
 async def run_and_print():
+    start = time.time()
     got = await coroutine(level=0, index=0)
+    print('cost', time.time() - start, 'seconds')
     print(got)
     assert got == 499999500000
 
